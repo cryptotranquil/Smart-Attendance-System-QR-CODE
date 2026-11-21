@@ -58,3 +58,10 @@ insert into public.profiles (school_id, school_email, full_name, role, active) v
 on conflict (school_id) do nothing;
 
 commit;
+
+-- Repair (2026-11-21): this project's auth.instances was empty, which made
+-- GoTrue fail every sign-in with {"code":"unexpected_failure","message":"Database error querying schema"}.
+-- Hosted projects normally carry exactly one instance row. Idempotent guard:
+insert into auth.instances (id, uuid, raw_base_config, created_at, updated_at)
+select '00000000-0000-0000-0000-000000000000', gen_random_uuid(), '{}', now(), now()
+where not exists (select 1 from auth.instances);
