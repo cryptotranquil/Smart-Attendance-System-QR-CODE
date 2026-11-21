@@ -1,27 +1,23 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:pulseqr/main.dart';
 
 void main() {
-  testWidgets('MyApp displays PulseQR title', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp(connected: false));
+  testWidgets('PulseQR auth screen renders the create-account view', (WidgetTester tester) async {
+    await tester.pumpWidget(const PulseQrApp(connected: false));
 
-    // Verify that our app shows PulseQR
-    expect(find.text('PulseQR'), findsOneWidget);
+    expect(find.text('Establish Institutional Identity'), findsOneWidget);
+    expect(find.text('Institutional Role'.toUpperCase()), findsOneWidget);
+    expect(find.text('Create Student Account'), findsOneWidget);
   });
 
-  testWidgets('AuthPreviewScreen displays welcome message', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp(connected: false));
+  testWidgets('Switching to Sign In shows the sign-in form', (WidgetTester tester) async {
+    await tester.pumpWidget(const PulseQrApp(connected: false));
 
-    // Verify the preview text
-    expect(find.textContaining('Design preview'), findsOneWidget);
+    await tester.tap(find.text('Sign In'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Sign In as Student'), findsOneWidget);
+    expect(find.text('Forgot password?'), findsOneWidget);
   });
 }
