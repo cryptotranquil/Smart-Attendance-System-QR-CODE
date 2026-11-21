@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import 'auth_screen.dart';
-import 'pulse_qr_theme.dart';
+import 'src/auth_screen.dart';
+import 'src/pulse_qr_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,7 +31,7 @@ class PulseQrApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'PulseQR',
+      title: 'Smart Attendance System',
       debugShowCheckedModeBanner: false,
       theme: PulseQrTheme.data,
       home: PulseQrAuthScreen(connected: connected),
