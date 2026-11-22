@@ -1,11 +1,11 @@
 {
-  "name": "Smart Attendance System",
-  "short_name": "Smart Attendance",
+  "name": "PulseQR",
+  "short_name": "PulseQR",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#F9F9FF",
-  "theme_color": "#000000",
-  "description": "Smart Attendance System \u2014 QR-verified school attendance for students, lecturers and administrators.",
+  "background_color": "#F5F6F8",
+  "theme_color": "#101828",
+  "description": "PulseQR \u2014 QR-verified school attendance for students, lecturers and administrators.",
   "orientation": "portrait-primary",
   "prefer_related_applications": false,
   "icons": [

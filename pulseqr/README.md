@@ -1,6 +1,6 @@
 # PulseQR
 
-School attendance for students, lecturers and administrators. Flutter app (Android, iOS, web) backed by Supabase. The auth experience (Create Account / Sign In) follows the Monochrome Neo-Tech design in `DESIGN.md`.
+School attendance for students, lecturers and administrators. Flutter app (Android, iOS, web) backed by Supabase. The whole app follows the **PulseQR Redesign** (see `DESIGN.md`): a calm, friendly "campus utility" system — big type, one confident accent, plain language.
 
 ## Demo credentials
 
@@ -25,7 +25,7 @@ Demo seed lives in `supabase/seed.sql`. It is written for demo projects only.
 
 ## Database
 
-Canonical schema: `supabase/migrations/20261121000100_pulseqr_core_schema.sql`.
+Canonical schema: `supabase/migrations/20261121000100_pulseqr_core_schema.sql` and `supabase/migrations/20261122000100_pulseqr_redesign_schema.sql`.
 
 The migration is intentionally destructive (`DROP … IF EXISTS … CASCADE`): it replaces the legacy `public.users` / dual-profile layout with a single clean schema —
 
@@ -35,6 +35,16 @@ The migration is intentionally destructive (`DROP … IF EXISTS … CASCADE`): i
 - everything else (`handle_new_user`, `is_admin`, `update_updated_at_column`) and RLS enabled everywhere; teaching tables have no client policies yet
 
 Applied live on 2026-11-21 as migration `recreate_pulseqr_schema`. The earlier draft folder (`pulseqr-database-draft/`) and superseded migrations were removed — the file above is the single source of truth.
+
+The redesign migration (`20261122000100_pulseqr_redesign_schema.sql`) was applied live on 2026-11-22 as migration `pulseqr_redesign_schema`. It is **additive only** and backs the redesigned screens:
+
+- `system_settings` rules keys: `minimum_attendance_percent=75`, `late_after_minutes=15`, `checkin_open_minutes=15`, `session_code_interval_minutes=15` (10–20), `excuse_window_days=7`, `automatic_excuses_per_course=2`, `late_cancel_hours=2`
+- `campus_config` — single-row geofence circle (default 300 m radius, Lilongwe CBD coordinates, admin-editable)
+- `no_class_days` — exam break seeded for 14–18 December 2026 (whole school); students are told automatically
+- `session_codes` — rotating typed codes; **no client read** — codes rotate server-side, the client checks in exclusively through the `check_in_with_code()` RPC (enforces rotating code, on-campus geofence, late-after rule, refused check-ins logged)
+- `excuses` — reason + details + proof URL (photo/PDF, ≤10 MB, `excuse-proofs` storage bucket); `send_excuse()` counts automatic excuses per course/term and either auto-approves or routes to the lecturer
+- `activity_log` — admin Activity feed (refused check-ins / changes); written by the RPCs, read-only for admins
+- RLS everywhere; `session_codes` intentionally has **no** client grants
 
 ## Supabase sign-in
 
