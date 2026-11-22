@@ -55,7 +55,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
     try {
       final supabase = Supabase.instance.client;
-      final email = _idController.text.trim();
+      final email = _idController.text.trim().toLowerCase();
       final password = _passwordController.text;
 
       if (_isCreate) {
@@ -78,17 +78,35 @@ class _SignInScreenState extends State<SignInScreen> {
 
       final result = await supabase.auth.signInWithPassword(email: email, password: password);
       if (result.user == null) {
-        setState(() => _error = 'Check your ID and password, then try again.');
+        setState(() => _error = _authMessage(null));
         return;
       }
       await _routeAfterLogin(supabase, result.user!.id);
-    } on AuthException catch (_) {
-      setState(() => _error = 'Check your ID and password, then try again.');
+    } on AuthException catch (e) {
+      setState(() => _error = _authMessage(e));
     } catch (_) {
       setState(() => _error = 'Something went wrong. Check your connection and try again.');
     } finally {
       if (mounted) setState(() => _busy = false);
     }
+  }
+
+  /// Turn Supabase auth errors into something a human can act on,
+  /// instead of one catch-all message that hides the real cause.
+  String _authMessage(AuthException? e) {
+    final status = e?.statusCode ?? '';
+    final code = (e?.code ?? '').toLowerCase();
+    final raw = (e?.message ?? '').toLowerCase();
+    if (status == '429' || raw.contains('too many') || raw.contains('rate limit')) {
+      return 'Too many tries in a short time. Wait a minute, then sign in.';
+    }
+    if (status == '500' || code.contains('unexpected_failure') || raw.contains('unexpected')) {
+      return 'The sign-in service had a hiccup — your password is fine. Try again in a moment.';
+    }
+    if (e == null || raw.contains('invalid') || code.contains('invalid')) {
+      return "That ID and password don't match. Check for typos — the demo emails look like name@pulseqr.demo.";
+    }
+    return "Couldn't sign you in. Check your connection and try again.";
   }
 
   Future<void> _routeAfterLogin(SupabaseClient supabase, String authUserId) async {
