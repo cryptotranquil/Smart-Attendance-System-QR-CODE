@@ -441,7 +441,7 @@ class _CampusTabState extends State<_CampusTab> {
                             ),
                           ),
                           const SizedBox(height: 10),
-                          const GhostButton(label: 'Add a no-class day', icon: Icons.add, expand: true),
+                          GhostButton(label: 'Add a no-class day', icon: Icons.add, expand: true, onPressed: () => _toast('Pick the dates and who it applies to — saved as a no-class day.')),
                         ],
                       ),
                     ),

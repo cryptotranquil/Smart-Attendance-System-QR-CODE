@@ -421,6 +421,8 @@ class _DemoQr extends StatelessWidget {
 }
 
 class _QrPainter extends CustomPainter {
+  const _QrPainter();
+
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..color = const Color(0xFF101828);
