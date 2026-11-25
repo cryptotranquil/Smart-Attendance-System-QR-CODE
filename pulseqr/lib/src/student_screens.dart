@@ -22,7 +22,7 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
   int _tab = 0;
 
   String get _name => (widget.userName?.trim().split(' ').first) ?? 'Alex';
-  String get _id => widget.schoolId ?? 'STU-99042';
+  String get _id => widget.schoolId ?? 'BIT/BT/24/ME/042';
 
   Future<void> _signOut() async {
     if (widget.connected) {

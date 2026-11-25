@@ -8,7 +8,7 @@ The live demo project (`QR code`, ref `vjnczngqljtvwjgmpgbo`) has three confirme
 
 | Email | Role | Profile ID |
 | --- | --- | --- |
-| `student@pulseqr.demo` | Student | `REG-DEMO-0001` |
+| `student@pulseqr.demo` | Student | `BIT/BT/24/ME/009` |
 | `lecturer@pulseqr.demo` | Lecturer | `FAC-DEMO-0001` |
 | `admin@pulseqr.demo` | Admin | `ADM-DEMO-0001` |
 
@@ -16,12 +16,26 @@ Two **unclaimed** registrar-roster rows exist so the Create Account flow can be 
 
 | Roster email | Role | Profile ID |
 | --- | --- | --- |
-| `newstudent@pulseqr.demo` | Student | `REG-2026-0042` |
+| `newstudent@pulseqr.demo` | Student | `BIT/BT/24/ME/042` |
 | `newlecturer@pulseqr.demo` | Lecturer | `FAC-2026-0042` |
 
 Signing up with one of those emails triggers the `handle_new_user` trigger, which links the new auth user to the roster profile and activates it. Any other email creates an auth user with **no** profile (the app signs them out and asks them to contact the Registrar) — this mirrors the school-provisioned roster model.
 
 Demo seed lives in `supabase/seed.sql`. It is written for demo projects only.
+
+## Student registration numbers
+
+Student registration numbers use the format **`BIT/BT/YY/XX/NNN`**, e.g. `BIT/BT/24/ME/009`:
+
+| Segment | Meaning | Example |
+| --- | --- | --- |
+| `BIT` | Bachelor of Information Technology (programme) | `BIT` |
+| `BT` | Campus — Blantyre | `BT` |
+| `YY` | Intake year, 2 digits | `24` = 2024 intake |
+| `ME` | Entry route — Mature Entry | `ME` |
+| `NNN` | Roll number, zero-padded to 3 digits | `009` |
+
+Staff identifiers are unchanged (`FAC-…` for lecturers, `ADM-…` for admins). The format is enforced socially/by the registrar — the app stores registration numbers as opaque `profiles.school_id` values and never parses them.
 
 ## Database
 

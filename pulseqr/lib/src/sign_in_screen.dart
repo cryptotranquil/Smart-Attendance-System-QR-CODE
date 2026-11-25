@@ -293,7 +293,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 TextFormField(
                   controller: _idController,
                   autocorrect: false,
-                  decoration: _fieldDecoration(hint: _isCreate ? 'STU-99042' : 'name@univ.edu or STU-99042'),
+                  decoration: _fieldDecoration(hint: _isCreate ? 'BIT/BT/24/ME/009' : 'name@univ.edu or BIT/BT/24/ME/009'),
                   validator: (v) {
                     final t = v?.trim() ?? '';
                     if (t.isEmpty) return 'Enter your ID or email';

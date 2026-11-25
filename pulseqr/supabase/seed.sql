@@ -1,7 +1,7 @@
 -- PulseQR demo seed — DEMO PROJECTS ONLY.
 -- Creates three confirmed demo auth users and their linked, active profiles:
 --
---   student@pulseqr.demo   / PulseQR-Demo-2026!  (student,  REG-DEMO-0001)
+--   student@pulseqr.demo   / PulseQR-Demo-2026!  (student,  BIT/BT/24/ME/009)
 --   lecturer@pulseqr.demo  / PulseQR-Demo-2026!  (lecturer, FAC-DEMO-0001)
 --   admin@pulseqr.demo     / PulseQR-Demo-2026!  (admin,    ADM-DEMO-0001)
 --
@@ -9,7 +9,7 @@
 -- demonstrated end-to-end (signing up with one of these emails claims the roster
 -- entry via the handle_new_user trigger):
 --
---   newstudent@pulseqr.demo  -> student  (REG-2026-0042, Chipo Banda)
+--   newstudent@pulseqr.demo  -> student  (BIT/BT/24/ME/042, Chipo Banda)
 --   newlecturer@pulseqr.demo -> lecturer (FAC-2026-0042, Limbani Phiri)
 --
 -- auth.users.encrypted_password uses pgcrypto's bcrypt (crypt/gen_salt('bf')).
@@ -25,7 +25,7 @@ declare
 begin
   for demo in
     select * from (values
-      ('student@pulseqr.demo',  'Tadala Chirwa',     'student'::public.user_role,  'REG-DEMO-0001'),
+      ('student@pulseqr.demo',  'Tadala Chirwa',     'student'::public.user_role,  'BIT/BT/24/ME/009'),
       ('lecturer@pulseqr.demo', 'Limbani Phiri',     'lecturer'::public.user_role, 'FAC-DEMO-0001'),
       ('admin@pulseqr.demo',    'Demo Administrator','admin'::public.user_role,    'ADM-DEMO-0001')
     ) as t(email, full_name, role, school_id)
@@ -53,7 +53,7 @@ begin
 end $$;
 
 insert into public.profiles (school_id, school_email, full_name, role, active) values
-  ('REG-2026-0042', 'newstudent@pulseqr.demo',  'Chipo Banda',   'student',  false),
+  ('BIT/BT/24/ME/042', 'newstudent@pulseqr.demo',  'Chipo Banda',   'student',  false),
   ('FAC-2026-0042', 'newlecturer@pulseqr.demo', 'Limbani Phiri', 'lecturer', false)
 on conflict (school_id) do nothing;
 
