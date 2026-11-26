@@ -1,6 +1,6 @@
-# PulseQR
+# Smart Attendance System
 
-School attendance for students, lecturers and administrators. Flutter app (Android, iOS, web) backed by Supabase. The whole app follows the **PulseQR Redesign** (see `DESIGN.md`): a calm, friendly "campus utility" system — big type, one confident accent, plain language.
+School attendance for students, lecturers and administrators. Flutter app (Android, iOS, web) backed by Supabase. The whole app follows the design system in `DESIGN.md`: a calm, friendly "campus utility" system — big type, one confident accent, plain language.
 
 ## Demo credentials
 

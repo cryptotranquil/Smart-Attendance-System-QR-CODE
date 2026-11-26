@@ -183,7 +183,7 @@ class _SignInScreenState extends State<SignInScreen> {
           children: [
             LogoMark(size: 34),
             SizedBox(width: 10),
-            Text('PulseQR', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, letterSpacing: -0.4)),
+            Text('Smart Attendance System', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, letterSpacing: -0.4)),
           ],
         ),
         const SizedBox(height: 36),
@@ -375,9 +375,9 @@ class _SignInScreenState extends State<SignInScreen> {
         fillColor: C.bg,
         suffixIcon: suffix,
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(PulseTheme.radiusField), borderSide: BorderSide.none),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField), borderSide: BorderSide.none),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(PulseTheme.radiusField),
+          borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField),
           borderSide: const BorderSide(color: C.accent, width: 1.4),
         ),
         errorStyle: const TextStyle(fontSize: 11, color: C.danger),

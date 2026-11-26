@@ -1,5 +1,5 @@
-# PulseQR Design System
-_Supersedes the Monochrome Neo-Tech system. Source of truth: `PulseQR Redesign.pdf` (9 pages, 2026-11-22). Implemented in `lib/src/theme.dart` (`C` palette + `PulseTheme`) and `lib/src/widgets.dart`._
+# Smart Attendance System — Design System
+_Supersedes the Monochrome Neo-Tech system. Source of truth: the 9-page redesign PDF (2026-11-22). Implemented in `lib/src/theme.dart` (`C` palette + `SmartAttendanceTheme`) and `lib/src/widgets.dart`._
 
 ## Personality
 Calm campus utility. Plain language, big type, one confident accent. Semantic colors appear only for status. Never shout: no gradients, no glassmorphism, no emoji.

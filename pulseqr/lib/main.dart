@@ -20,20 +20,20 @@ Future<void> main() async {
     }
   }
 
-  runApp(PulseQrApp(connected: connected));
+  runApp(SmartAttendanceApp(connected: connected));
 }
 
-class PulseQrApp extends StatelessWidget {
-  const PulseQrApp({super.key, required this.connected});
+class SmartAttendanceApp extends StatelessWidget {
+  const SmartAttendanceApp({super.key, required this.connected});
 
   final bool connected;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'PulseQR',
+      title: 'Smart Attendance System',
       debugShowCheckedModeBanner: false,
-      theme: PulseTheme.data,
+      theme: SmartAttendanceTheme.data,
       home: SignInScreen(connected: connected),
     );
   }

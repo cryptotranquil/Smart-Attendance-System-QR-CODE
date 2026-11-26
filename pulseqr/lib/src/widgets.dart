@@ -28,7 +28,7 @@ class AppCard extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         decoration: BoxDecoration(
           color: C.card,
-          borderRadius: BorderRadius.circular(PulseTheme.radiusCard),
+          borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusCard),
           border: Border.all(color: C.hairline),
         ),
         padding: padding,
@@ -108,7 +108,7 @@ class PrimaryButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: C.brand,
           elevation: 0,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(PulseTheme.radiusField)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField)),
         ),
         onPressed: onPressed,
         child: Padding(padding: const EdgeInsets.symmetric(horizontal: 18), child: child),
@@ -134,7 +134,7 @@ class GhostButton extends StatelessWidget {
           style: OutlinedButton.styleFrom(
             foregroundColor: danger ? C.danger : C.ink,
             side: BorderSide(color: danger ? const Color(0x66B42318) : C.hairline),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(PulseTheme.radiusField)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField)),
           ),
           onPressed: onPressed,
           child: Row(
@@ -193,7 +193,7 @@ class AppTopBar extends StatelessWidget {
         children: [
           const LogoMark(size: 28),
           const SizedBox(width: 8),
-          const Text('PulseQR', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16, letterSpacing: -0.3)),
+          const Text('Smart Attendance', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16, letterSpacing: -0.3)),
           const SizedBox(width: 18),
           if (wide)
             for (var i = 0; i < navItems.length; i++)

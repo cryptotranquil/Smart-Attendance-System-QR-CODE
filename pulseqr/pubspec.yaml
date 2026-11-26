@@ -1,5 +1,5 @@
-name: pulseqr
-description: School attendance for students, lecturers and administrators.
+name: smart_attendance_system
+description: Smart Attendance System — school attendance for students, lecturers and administrators.
 publish_to: none
 version: 0.1.0+1
 environment:

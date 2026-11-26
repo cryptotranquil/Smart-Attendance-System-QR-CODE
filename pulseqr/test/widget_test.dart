@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:pulseqr/main.dart';
+import 'package:smart_attendance_system/main.dart';
 
 void main() {
-  testWidgets('PulseQR auth screen renders the create-account view', (WidgetTester tester) async {
-    await tester.pumpWidget(const PulseQrApp(connected: false));
+  testWidgets('Smart Attendance System auth screen renders the create-account view', (WidgetTester tester) async {
+    await tester.pumpWidget(const SmartAttendanceApp(connected: false));
 
     expect(find.text('Establish Institutional Identity'), findsOneWidget);
     expect(find.text('Institutional Role'.toUpperCase()), findsOneWidget);
@@ -12,7 +12,7 @@ void main() {
   });
 
   testWidgets('Switching to Sign In shows the sign-in form', (WidgetTester tester) async {
-    await tester.pumpWidget(const PulseQrApp(connected: false));
+    await tester.pumpWidget(const SmartAttendanceApp(connected: false));
 
     await tester.tap(find.text('Sign In'));
     await tester.pumpAndSettle();

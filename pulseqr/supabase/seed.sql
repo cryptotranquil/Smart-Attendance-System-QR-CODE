@@ -1,4 +1,4 @@
--- PulseQR demo seed — DEMO PROJECTS ONLY.
+-- Smart Attendance System demo seed — DEMO PROJECTS ONLY.
 -- Creates three confirmed demo auth users and their linked, active profiles:
 --
 --   student@pulseqr.demo   / PulseQR-Demo-2026!  (student,  BIT/BT/24/ME/009)

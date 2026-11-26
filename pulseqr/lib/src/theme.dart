@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// PulseQR redesign — calm, friendly, high-contrast "campus utility" system.
+/// Smart Attendance System — calm, friendly, high-contrast "campus utility" system.
 /// Plain language, big type, one confident accent, semantic colors only for status.
 class C {
   C._();
@@ -23,8 +23,8 @@ class C {
   static const infoSoft = Color(0xFFEFF4FF);
 }
 
-class PulseTheme {
-  PulseTheme._();
+class SmartAttendanceTheme {
+  SmartAttendanceTheme._();
 
   static const double radiusCard = 20;
   static const double radiusField = 14;
