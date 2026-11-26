@@ -55,7 +55,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
     try {
       final supabase = Supabase.instance.client;
-      final email = _idController.text.trim();
+      final email = _idController.text.trim().toLowerCase();
       final password = _passwordController.text;
 
       if (_isCreate) {
@@ -78,17 +78,35 @@ class _SignInScreenState extends State<SignInScreen> {
 
       final result = await supabase.auth.signInWithPassword(email: email, password: password);
       if (result.user == null) {
-        setState(() => _error = 'Check your ID and password, then try again.');
+        setState(() => _error = _authMessage(null));
         return;
       }
       await _routeAfterLogin(supabase, result.user!.id);
-    } on AuthException catch (_) {
-      setState(() => _error = 'Check your ID and password, then try again.');
+    } on AuthException catch (e) {
+      setState(() => _error = _authMessage(e));
     } catch (_) {
       setState(() => _error = 'Something went wrong. Check your connection and try again.');
     } finally {
       if (mounted) setState(() => _busy = false);
     }
+  }
+
+  /// Turn Supabase auth errors into something a human can act on,
+  /// instead of one catch-all message that hides the real cause.
+  String _authMessage(AuthException? e) {
+    final status = e?.statusCode ?? '';
+    final code = (e?.code ?? '').toLowerCase();
+    final raw = (e?.message ?? '').toLowerCase();
+    if (status == '429' || raw.contains('too many') || raw.contains('rate limit')) {
+      return 'Too many tries in a short time. Wait a minute, then sign in.';
+    }
+    if (status == '500' || code.contains('unexpected_failure') || raw.contains('unexpected')) {
+      return 'The sign-in service had a hiccup — your password is fine. Try again in a moment.';
+    }
+    if (e == null || raw.contains('invalid') || code.contains('invalid')) {
+      return "That ID and password don't match. Check for typos — the demo emails look like name@pulseqr.demo.";
+    }
+    return "Couldn't sign you in. Check your connection and try again.";
   }
 
   Future<void> _routeAfterLogin(SupabaseClient supabase, String authUserId) async {
@@ -165,7 +183,7 @@ class _SignInScreenState extends State<SignInScreen> {
           children: [
             LogoMark(size: 34),
             SizedBox(width: 10),
-            Text('PulseQR', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, letterSpacing: -0.4)),
+            Text('Smart Attendance System', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, letterSpacing: -0.4)),
           ],
         ),
         const SizedBox(height: 36),
@@ -275,7 +293,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 TextFormField(
                   controller: _idController,
                   autocorrect: false,
-                  decoration: _fieldDecoration(hint: _isCreate ? 'STU-99042' : 'name@univ.edu or STU-99042'),
+                  decoration: _fieldDecoration(hint: _isCreate ? 'BIT/BT/24/ME/009' : 'name@univ.edu or BIT/BT/24/ME/009'),
                   validator: (v) {
                     final t = v?.trim() ?? '';
                     if (t.isEmpty) return 'Enter your ID or email';
@@ -357,9 +375,9 @@ class _SignInScreenState extends State<SignInScreen> {
         fillColor: C.bg,
         suffixIcon: suffix,
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(PulseTheme.radiusField), borderSide: BorderSide.none),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField), borderSide: BorderSide.none),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(PulseTheme.radiusField),
+          borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField),
           borderSide: const BorderSide(color: C.accent, width: 1.4),
         ),
         errorStyle: const TextStyle(fontSize: 11, color: C.danger),

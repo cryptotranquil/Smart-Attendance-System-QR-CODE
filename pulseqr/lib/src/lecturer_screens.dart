@@ -102,7 +102,7 @@ class _TodayTab extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   color: C.brand,
-                  borderRadius: BorderRadius.circular(PulseTheme.radiusCard),
+                  borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusCard),
                 ),
                 padding: const EdgeInsets.all(20),
                 child: Row(

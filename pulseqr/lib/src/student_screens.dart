@@ -22,7 +22,7 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
   int _tab = 0;
 
   String get _name => (widget.userName?.trim().split(' ').first) ?? 'Alex';
-  String get _id => widget.schoolId ?? 'STU-99042';
+  String get _id => widget.schoolId ?? 'BIT/BT/24/ME/042';
 
   Future<void> _signOut() async {
     if (widget.connected) {
@@ -107,7 +107,7 @@ class _HomeTab extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   color: C.brand,
-                  borderRadius: BorderRadius.circular(PulseTheme.radiusCard),
+                  borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusCard),
                 ),
                 padding: const EdgeInsets.all(20),
                 child: Row(
@@ -359,7 +359,7 @@ class _CheckInTabState extends State<_CheckInTab> {
                           hintStyle: const TextStyle(color: C.faint, fontSize: 34, letterSpacing: 14, fontWeight: FontWeight.w800),
                           filled: true,
                           fillColor: C.bg,
-                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(PulseTheme.radiusField), borderSide: BorderSide.none),
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField), borderSide: BorderSide.none),
                         ),
                       ),
                     ] else
@@ -367,7 +367,7 @@ class _CheckInTabState extends State<_CheckInTab> {
                         height: 220,
                         decoration: BoxDecoration(
                           color: C.bg,
-                          borderRadius: BorderRadius.circular(PulseTheme.radiusCard),
+                          borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusCard),
                           border: Border.all(color: C.hairline),
                         ),
                         child: Column(
@@ -528,12 +528,12 @@ class _ExcusesTabState extends State<_ExcusesTab> {
                   padding: const EdgeInsets.only(bottom: 8),
                   child: InkWell(
                     onTap: () => setState(() => _missed = i),
-                    borderRadius: BorderRadius.circular(PulseTheme.radiusField),
+                    borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField),
                     child: Container(
                       padding: const EdgeInsets.all(14),
                       decoration: BoxDecoration(
                         color: _missed == i ? C.infoSoft : C.card,
-                        borderRadius: BorderRadius.circular(PulseTheme.radiusField),
+                        borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField),
                         border: Border.all(color: _missed == i ? C.accent : C.hairline, width: _missed == i ? 1.6 : 1),
                       ),
                       child: Row(
@@ -573,12 +573,12 @@ class _ExcusesTabState extends State<_ExcusesTab> {
               const SectionLabel('3 · Add proof'),
               InkWell(
                 onTap: () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Proof upload lands with the file-picker milestone.'))),
-                borderRadius: BorderRadius.circular(PulseTheme.radiusField),
+                borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField),
                 child: Container(
                   padding: const EdgeInsets.all(18),
                   decoration: BoxDecoration(
                     border: Border.all(color: C.hairline),
-                    borderRadius: BorderRadius.circular(PulseTheme.radiusField),
+                    borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField),
                     color: C.card,
                   ),
                   child: const Row(
@@ -668,6 +668,6 @@ class _ExcusesTabState extends State<_ExcusesTab> {
         filled: true,
         fillColor: C.card,
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(PulseTheme.radiusField), borderSide: const BorderSide(color: C.hairline)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField), borderSide: const BorderSide(color: C.hairline)),
       );
 }

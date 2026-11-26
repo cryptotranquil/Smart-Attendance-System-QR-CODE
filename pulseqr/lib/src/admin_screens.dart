@@ -362,9 +362,9 @@ class _CampusTabState extends State<_CampusTab> {
                           Container(
                             height: 170,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(PulseTheme.radiusField),
+                              borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField),
                               gradient: const RadialGradient(
-                                colors: [Color(0xFFDCE7FB), Color(0xFFF4F6FA)],
+                                colors: [Color(0xFF1B2B4A), Color(0xFF111B30)],
                                 center: Alignment(-0.2, 0.1),
                                 radius: 0.9,
                               ),
@@ -421,7 +421,7 @@ class _CampusTabState extends State<_CampusTab> {
                           const SizedBox(height: 12),
                           Container(
                             padding: const EdgeInsets.all(12),
-                            decoration: BoxDecoration(border: Border.all(color: C.warn, width: 1.4), borderRadius: BorderRadius.circular(PulseTheme.radiusField), color: C.warnSoft),
+                            decoration: BoxDecoration(border: Border.all(color: C.warn, width: 1.4), borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField), color: C.warnSoft),
                             child: Row(
                               children: [
                                 const Icon(Icons.beach_access, color: C.warn, size: 20),

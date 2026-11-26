@@ -70,12 +70,12 @@ const missedClasses = [
 ];
 
 const demoPeople = <DemoPerson>[
-  DemoPerson('Amina Al-Mansoor', 'STU-88210', 'Student', 'Computing', 'Active'),
+  DemoPerson('Amina Al-Mansoor', 'BIT/BT/24/ME/010', 'Student', 'Computing', 'Active'),
   DemoPerson('Dr. Elena Vance', 'STF-0042', 'Lecturer', 'Computing', 'Active'),
-  DemoPerson('Kai Takahashi', 'STU-99041', 'Student', 'Engineering', 'Active'),
-  DemoPerson('Jonas Davies', 'STU-70192', 'Student', 'Economics', 'Not signed up'),
+  DemoPerson('Kai Takahashi', 'BIT/BT/24/ME/041', 'Student', 'Engineering', 'Active'),
+  DemoPerson('Jonas Davies', 'BIT/BT/24/ME/192', 'Student', 'Economics', 'Not signed up'),
   DemoPerson("Prof. Marcus O'Connor", 'STF-0021', 'Lecturer', 'Bioengineering', 'Active'),
-  DemoPerson('Sara Osei', 'STU-08720', 'Student', 'Design', 'Suspended'),
+  DemoPerson('Sara Osei', 'BIT/BT/24/ME/087', 'Student', 'Design', 'Suspended'),
 ];
 
 const demoTimetable = [
