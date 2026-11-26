@@ -364,7 +364,7 @@ class _CampusTabState extends State<_CampusTab> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(SmartAttendanceTheme.radiusField),
                               gradient: const RadialGradient(
-                                colors: [Color(0xFFDCE7FB), Color(0xFFF4F6FA)],
+                                colors: [Color(0xFF1B2B4A), Color(0xFF111B30)],
                                 center: Alignment(-0.2, 0.1),
                                 radius: 0.9,
                               ),

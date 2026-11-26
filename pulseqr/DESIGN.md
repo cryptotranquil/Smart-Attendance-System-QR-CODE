@@ -7,18 +7,18 @@ Calm campus utility. Plain language, big type, one confident accent. Semantic co
 ## Color tokens
 | Token | Hex | Use |
 |---|---|---|
-| `bg` | `#F5F6F8` | Scaffold background |
-| `card` | `#FFFFFF` | Cards, app bar, fields on cards |
-| `ink` | `#101828` | Text, near-black buttons (`brand`) |
-| `muted` | `#667085` | Secondary text |
-| `faint` | `#98A2B3` | Section labels, placeholders, disabled |
-| `hairline` | `#E4E7EC` | Card borders, dividers |
-| `accent` | `#155EEF` | Links, focus rings, active nav, selected states |
-| `brand` | `#101828` | Primary buttons, dark hero cards, logo mark |
-| `success` | `#067647` on `#ECFDF3` | Approved, on campus, present, Active |
-| `warn` | `#B54708` on `#FFFAEB` | With lecturer, late, no-class days, off-campus nudge |
-| `danger` | `#B42318` on `#FEF3F2` | Below 75%, refused, Suspended, error copy |
-| `infoSoft` | `#EFF4FF` | Info banners (automatic excuses, upgrade prompts) |
+| `bg` | `#0B1220` | Scaffold background (deep navy, dark theme) |
+| `card` | `#141F36` | Cards, app bar, fields on cards |
+| `ink` | `#F2F5FA` | Primary text |
+| `muted` | `#A7B1C4` | Secondary text |
+| `faint` | `#71809A` | Section labels, placeholders, disabled |
+| `hairline` | `#253350` | Card borders, dividers |
+| `accent` | `#6EA8FF` | Links, focus rings, active nav, selected states |
+| `brand` | `#2E6BE6` | Primary buttons, hero cards, logo mark (white text on top) |
+| `success` | `#47CD89` on `#0F2E1F` | Approved, on campus, present, Active |
+| `warn` | `#FDB022` on `#33270E` | With lecturer, late, no-class days, off-campus nudge |
+| `danger` | `#F97066` on `#381E1B` | Below 75%, refused, Suspended, error copy |
+| `infoSoft` | `#182C52` | Info banners (automatic excuses, upgrade prompts) |
 
 ## Shape & type
 - Radius: cards `20`, fields `14`, buttons `12–14`, pills `999`.
